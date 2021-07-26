@@ -27,7 +27,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
- 
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
@@ -76,4 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = { :authentication => :plain, :address => "smtp.sendgrid.net", :port => 587, :domain => "engineyard.com", :user_name => "glapshun@engineyard.com"), :api_key => ENV['SENDGRID_API_KEY'], :authentication => 'plain', :enable_starttls_auto => true }
 end
